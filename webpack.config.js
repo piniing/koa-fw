@@ -44,6 +44,13 @@ module.exports = {
     },
     externals: nodeModules,
     plugins: [
+        // new webpack.DefinePlugin({
+        //     $dirname: '__dirname',
+        // }),
         new webpack.IgnorePlugin(/\.(css|less)$/)
     ],
+    node: {
+        __filename: false,
+        __dirname: false
+    }
 }
