@@ -47,7 +47,15 @@ module.exports = {
         // new webpack.DefinePlugin({
         //     $dirname: '__dirname',
         // }),
-        new webpack.IgnorePlugin(/\.(css|less)$/)
+        new webpack.IgnorePlugin(/\.(css|less)$/),
+        new webpack.optimize.UglifyJsPlugin({
+            output: {
+                comments: false
+            },
+            compress: {
+                warnings: false
+            }
+        }),
     ],
     node: {
         __filename: false,
