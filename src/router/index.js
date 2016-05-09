@@ -33,7 +33,7 @@ router
     })
     .get('/unset', (ctx, next) => {
         var r = ctx.cookies.set('name', null);
-        ctx.body = r.toString();
+        ctx.body = JSON.parse(r);
 
     })
     .get('/get', authorize.userAuth(), async(ctx, next) => {

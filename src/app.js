@@ -6,6 +6,7 @@ import logger from 'koa-logger'
 import views from 'koa-views'
 import serve from 'koa-static'
 import send from 'koa-send'
+import cors from 'kcors'
 
 import index from './router/index'
 import api from './router/api'
@@ -29,6 +30,14 @@ app.use(async(ctx, next) => {
         ctx.status = err.status || 500
     }
 });
+
+//设置header头
+app.use( convert( cors({
+    // origin: '*',
+    credentials: true,
+    headers: ['Content-Type, Content-Length, Authorization, Accept, X-Requested-With'],
+    methods: ['PUT, POST, GET, DELETE, OPTIONS']
+}) ) );
 
 //设置DBModel
 app.use(async(ctx, next) => {
