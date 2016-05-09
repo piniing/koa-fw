@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.js --exec babel-node -w src/",
+    "dev": "cd src && nodemon app.js --exec babel-node -w ./",
     "pm2": "pm2 start src/app.js --interpreter babel-node"
   },
   "keywords": [],
